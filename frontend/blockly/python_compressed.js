@@ -13,7 +13,25 @@ Blockly.Python.scrub_=function(a,b){var c="";if(!a.outputConnection||!a.outputCo
 Blockly.Python.colour_rgb=function(a){var b=Blockly.Python.provideFunction_("colour_rgb",["def "+Blockly.Python.FUNCTION_NAME_PLACEHOLDER_+"(r, g, b):","  r = round(min(100, max(0, r)) * 2.55)","  g = round(min(100, max(0, g)) * 2.55)","  b = round(min(100, max(0, b)) * 2.55)","  return '#%02x%02x%02x' % (r, g, b)"]),c=Blockly.Python.valueToCode(a,"RED",Blockly.Python.ORDER_NONE)||0,d=Blockly.Python.valueToCode(a,"GREEN",Blockly.Python.ORDER_NONE)||0;a=Blockly.Python.valueToCode(a,"BLUE",Blockly.Python.ORDER_NONE)||
 0;return[b+"("+c+", "+d+", "+a+")",Blockly.Python.ORDER_FUNCTION_CALL]};
 Blockly.Python.colour_blend=function(a){var b=Blockly.Python.provideFunction_("colour_blend",["def "+Blockly.Python.FUNCTION_NAME_PLACEHOLDER_+"(colour1, colour2, ratio):","  r1, r2 = int(colour1[1:3], 16), int(colour2[1:3], 16)","  g1, g2 = int(colour1[3:5], 16), int(colour2[3:5], 16)","  b1, b2 = int(colour1[5:7], 16), int(colour2[5:7], 16)","  ratio = min(1, max(0, ratio))","  r = round(r1 * (1 - ratio) + r2 * ratio)","  g = round(g1 * (1 - ratio) + g2 * ratio)","  b = round(b1 * (1 - ratio) + b2 * ratio)",
-"  return '#%02x%02x%02x' % (r, g, b)"]),c=Blockly.Python.valueToCode(a,"COLOUR1",Blockly.Python.ORDER_NONE)||"'#000000'",d=Blockly.Python.valueToCode(a,"COLOUR2",Blockly.Python.ORDER_NONE)||"'#000000'";a=Blockly.Python.valueToCode(a,"RATIO",Blockly.Python.ORDER_NONE)||0;return[b+"("+c+", "+d+", "+a+")",Blockly.Python.ORDER_FUNCTION_CALL]};Blockly.Python.lists={};Blockly.Python.lists_create_empty=function(a){return["[]",Blockly.Python.ORDER_ATOMIC]};Blockly.Python.lists_create_with=function(a){for(var b=Array(a.itemCount_),c=0;c<a.itemCount_;c++)b[c]=Blockly.Python.valueToCode(a,"ADD"+c,Blockly.Python.ORDER_NONE)||"None";b="["+b.join(", ")+"]";return[b,Blockly.Python.ORDER_ATOMIC]};
+"  return '#%02x%02x%02x' % (r, g, b)"]),c=Blockly.Python.valueToCode(a,"COLOUR1",Blockly.Python.ORDER_NONE)||"'#000000'",d=Blockly.Python.valueToCode(a,"COLOUR2",Blockly.Python.ORDER_NONE)||"'#000000'";a=Blockly.Python.valueToCode(a,"RATIO",Blockly.Python.ORDER_NONE)||0;return[b+"("+c+", "+d+", "+a+")",Blockly.Python.ORDER_FUNCTION_CALL]};/*
+
+
+ Copyright 2015 Erle Robotics
+ http://erlerobotics.com
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+*/
+Blockly.Python.spider={};Blockly.Python.spider_standup=function(a){return'print "standing up..."'};Blockly.Python.spider_forward=function(a){return'print "going forward for "'+a.getFieldValue("FORWARD_SECS")+'"seconds"'};Blockly.Python.lists={};Blockly.Python.lists_create_empty=function(a){return["[]",Blockly.Python.ORDER_ATOMIC]};Blockly.Python.lists_create_with=function(a){for(var b=Array(a.itemCount_),c=0;c<a.itemCount_;c++)b[c]=Blockly.Python.valueToCode(a,"ADD"+c,Blockly.Python.ORDER_NONE)||"None";b="["+b.join(", ")+"]";return[b,Blockly.Python.ORDER_ATOMIC]};
 Blockly.Python.lists_repeat=function(a){var b=Blockly.Python.valueToCode(a,"ITEM",Blockly.Python.ORDER_NONE)||"None";a=Blockly.Python.valueToCode(a,"NUM",Blockly.Python.ORDER_MULTIPLICATIVE)||"0";return["["+b+"] * "+a,Blockly.Python.ORDER_MULTIPLICATIVE]};Blockly.Python.lists_length=function(a){return["len("+(Blockly.Python.valueToCode(a,"VALUE",Blockly.Python.ORDER_NONE)||"[]")+")",Blockly.Python.ORDER_FUNCTION_CALL]};
 Blockly.Python.lists_isEmpty=function(a){return["not len("+(Blockly.Python.valueToCode(a,"VALUE",Blockly.Python.ORDER_NONE)||"[]")+")",Blockly.Python.ORDER_LOGICAL_NOT]};
 Blockly.Python.lists_indexOf=function(a){var b=Blockly.Python.valueToCode(a,"FIND",Blockly.Python.ORDER_NONE)||"[]",c=Blockly.Python.valueToCode(a,"VALUE",Blockly.Python.ORDER_MEMBER)||"''";return[("FIRST"==a.getFieldValue("END")?Blockly.Python.provideFunction_("first_index",["def "+Blockly.Python.FUNCTION_NAME_PLACEHOLDER_+"(myList, elem):","  try: theIndex = myList.index(elem) + 1","  except: theIndex = 0","  return theIndex"]):Blockly.Python.provideFunction_("last_index",["def "+Blockly.Python.FUNCTION_NAME_PLACEHOLDER_+
