@@ -28,7 +28,7 @@ goog.require('Blockly.Python');
 
 Blockly.Python['spider_standup'] = function(block) {
   // TODO: Assemble Python into code variable.
-  var code = 'print "standing up..."';
+  var code = 'print "standing up..."\n';
   return code;
 };
 
@@ -36,6 +36,6 @@ Blockly.Python['spider_standup'] = function(block) {
 Blockly.Python['spider_forward'] = function(block) {
   var text_forward_secs = block.getFieldValue('FORWARD_SECS');
   // TODO: Assemble Python into code variable.
-  var code = 'print "going forward for "'+text_forward_secs+'"seconds"';
+  var code = 'print "going forward for "'+text_forward_secs+'"seconds"\n';
   return code;
 };
