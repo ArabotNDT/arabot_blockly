@@ -26,16 +26,25 @@
 goog.provide('Blockly.Python.spider');
 goog.require('Blockly.Python');
 
-Blockly.Python['spider_standup'] = function(block) {
-  // TODO: Assemble Python into code variable.
-  var code = 'print "standing up..."\n';
+Blockly.Python['spider_standup'] = function(block) {  
+  // var code = 'print "standing up..."\n';
+  var code = ""
+  code+="import time\n"
+  code+="\n"
+  code+="pub = rospy.Publisher('rosimple', String, queue_size=10)\n"
+  code+="time.sleep(1)\n"
+  code+="pub.publish('Spider spider_standup')\n"
   return code;
 };
 
 
 Blockly.Python['spider_forward'] = function(block) {
   var text_forward_secs = block.getFieldValue('FORWARD_SECS');
-  // TODO: Assemble Python into code variable.
-  var code = 'print "going forward for "'+text_forward_secs+'"seconds"\n';
+  var code = ""
+  code+="import time\n"
+  code+="\n"
+  code+="pub = rospy.Publisher('rosimple', String, queue_size=10)\n"
+  code+="time.sleep(1)\n"
+  code+="pub.publish('Spider going forward for "+text_forward_secs.toString()+" seconds')\n"
   return code;
 };
