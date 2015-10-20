@@ -32,7 +32,7 @@ Blockly.Python['spider_standup'] = function(block) {
 	// code+="import time\n"
 	// code+="\n"
 	// code+="pub = rospy.Publisher('rosimple', String, queue_size=10)\n"
-	// code+="time.sleep(1)\n"
+	code+="time.sleep(1)\n"
 	// code+="pub.publish('Spider spider_standup')\n"
 
 	code+="import sys\n"
@@ -57,7 +57,7 @@ Blockly.Python['spider_standup'] = function(block) {
 	code+="for e in range (0, 17):\n"
 	code+="	msg.buttons.append(valueButton)\n"
 	code+="\n"
-	code+="time.sleep(1)\n"
+	// code+="time.sleep(1)\n"
 	code+="\n"
 	code+="####################\n"
 	code+="## STAND UP 	  ##\n"
@@ -65,6 +65,7 @@ Blockly.Python['spider_standup'] = function(block) {
 	code+="msg.buttons[3] = 1\n"
 	code+="i=0\n"
 	code+="bo=True\n"
+	code+="standup_time=standup_time/3\n"
 	code+="while not rospy.is_shutdown() and bo:\n"
 	code+="	i=i+1\n"
 	code+="	if (i>standup_time):\n"
@@ -101,7 +102,7 @@ Blockly.Python['spider_sitdown'] = function(block) {
 	code+="for e in range (0, 17):\n"
 	code+="	msg.buttons.append(valueButton)\n"
 	code+="\n"
-	code+="time.sleep(1)\n"
+	// code+="time.sleep(1)\n"
 	code+="\n"
 	code+="####################\n"
 	code+="## SIT DOWN 	  ##\n"
@@ -128,7 +129,7 @@ Blockly.Python['spider_forward'] = function(block) {
 	// code+="import time\n"
 	// code+="\n"
 	// code+="pub = rospy.Publisher('rosimple', String, queue_size=10)\n"
-	// code+="time.sleep(1)\n"
+	code+="time.sleep(1)\n"
 	// code+="pub.publish('Spider going forward for "+text_forward_secs.toString()+" seconds')\n"
 
 	var code = ""
@@ -154,7 +155,7 @@ Blockly.Python['spider_forward'] = function(block) {
 	code+="for e in range (0, 17):\n"
 	code+="	msg.buttons.append(valueButton)\n"
 	code+="\n"
-	code+="time.sleep(1)\n"
+	// code+="time.sleep(1)\n"
 	code+="\n"
 
 	code+="#################\n"
@@ -198,7 +199,7 @@ Blockly.Python['spider_backwards'] = function(block) {
 	code+="for e in range (0, 17):\n"
 	code+="	msg.buttons.append(valueButton)\n"
 	code+="\n"
-	code+="time.sleep(1)\n"
+	// code+="time.sleep(1)\n"
 	code+="\n"
 
 	code+="#################\n"
@@ -226,7 +227,7 @@ Blockly.Python['spider_right'] = function(block) {
 	code+="from crab_msgs.msg import *\n"
 	code+="from sensor_msgs.msg import Joy\n"
 	code+="\n"	 
-	code+="walking_time="+text_backwards_secs.toString()+"\n"
+	code+="walking_time="+text_right_secs.toString()+"\n"
 	code+="\n"
 	code+="################\n"
 	code+="## INITIALIZE ##\n"
@@ -243,7 +244,7 @@ Blockly.Python['spider_right'] = function(block) {
 	code+="for e in range (0, 17):\n"
 	code+="	msg.buttons.append(valueButton)\n"
 	code+="\n"
-	code+="time.sleep(1)\n"
+	// code+="time.sleep(1)\n"
 	code+="\n"
 
 	code+="#################\n"
@@ -263,14 +264,14 @@ Blockly.Python['spider_right'] = function(block) {
 };
 
 Blockly.Python['spider_left'] = function(block) {
-	var text_right_secs = block.getFieldValue('LEFT_SECS');
+	var text_left_secs = block.getFieldValue('LEFT_SECS');
 	var code = ""
 	code+="import sys\n"
 	code+="import time\n"
 	code+="from crab_msgs.msg import *\n"
 	code+="from sensor_msgs.msg import Joy\n"
 	code+="\n"	 
-	code+="walking_time="+text_backwards_secs.toString()+"\n"
+	code+="walking_time="+text_left_secs.toString()+"\n"
 	code+="\n"
 	code+="################\n"
 	code+="## INITIALIZE ##\n"
@@ -287,7 +288,7 @@ Blockly.Python['spider_left'] = function(block) {
 	code+="for e in range (0, 17):\n"
 	code+="	msg.buttons.append(valueButton)\n"
 	code+="\n"
-	code+="time.sleep(1)\n"
+	// code+="time.sleep(1)\n"
 	code+="\n"
 
 	code+="#################\n"
@@ -331,7 +332,7 @@ Blockly.Python['spider_turn_right'] = function(block) {
 	code+="for e in range (0, 17):\n"
 	code+="	msg.buttons.append(valueButton)\n"
 	code+="\n"
-	code+="time.sleep(1)\n"
+	// code+="time.sleep(1)\n"
 	code+="\n"
 
 	code+="#################\n"
@@ -375,7 +376,7 @@ Blockly.Python['spider_turn_left'] = function(block) {
 	code+="for e in range (0, 17):\n"
 	code+="	msg.buttons.append(valueButton)\n"
 	code+="\n"
-	code+="time.sleep(1)\n"
+	// code+="time.sleep(1)\n"
 	code+="\n"
 
 	code+="#################\n"
