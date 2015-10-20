@@ -33,10 +33,10 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks.spider.HUE = 260;
 
 
-Blockly.Blocks['spider_standup'] = {
+Blockly.Blocks['spider_standup_down'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Stand up");
+        .appendField("Stand up/down");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
     this.setColour(260);
@@ -45,17 +45,17 @@ Blockly.Blocks['spider_standup'] = {
   }
 };
 
-Blockly.Blocks['spider_sitdown'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Sit down");
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);
-    this.setColour(260);
-    this.setTooltip('');
-    this.setHelpUrl('http://www.erlerobotics.com/');
-  }
-};
+// Blockly.Blocks['spider_sitdown'] = {
+//   init: function() {
+//     this.appendDummyInput()
+//         .appendField("Sit down");
+//     this.setPreviousStatement(true);
+//     this.setNextStatement(true);
+//     this.setColour(260);
+//     this.setTooltip('');
+//     this.setHelpUrl('http://www.erlerobotics.com/');
+//   }
+// };
 
 Blockly.Blocks['spider_forward'] = {
   init: function() {
