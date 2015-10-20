@@ -29,12 +29,6 @@ goog.require('Blockly.Python');
 Blockly.Python['spider_standup'] = function(block) {  
 	// var code = 'print "standing up..."\n';
 	var code = ""
-	// code+="import time\n"
-	// code+="\n"
-	// code+="pub = rospy.Publisher('rosimple', String, queue_size=10)\n"
-	code+="time.sleep(1)\n"
-	// code+="pub.publish('Spider spider_standup')\n"
-
 	code+="import sys\n"
 	code+="import time\n"
 	code+="from crab_msgs.msg import *\n"
