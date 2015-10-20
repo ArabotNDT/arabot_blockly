@@ -45,11 +45,93 @@ Blockly.Blocks['spider_standup'] = {
   }
 };
 
+Blockly.Blocks['spider_sitdown'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Sit down");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(260);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.erlerobotics.com/');
+  }
+};
+
 Blockly.Blocks['spider_forward'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("Go forward")
         .appendField(new Blockly.FieldTextInput("2"), "FORWARD_SECS")
+        .appendField("seconds");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(260);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.erlerobotics.com/');
+  }
+};
+
+Blockly.Blocks['spider_backwards'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Go backwards")
+        .appendField(new Blockly.FieldTextInput("3"), "BACKWARDS_SECS")
+        .appendField("seconds");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(260);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.erlerobotics.com/');
+  }
+};
+
+Blockly.Blocks['spider_right'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Go right")
+        .appendField(new Blockly.FieldTextInput("5"), "RIGHT_SECS")
+        .appendField("seconds");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(260);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.erlerobotics.com/');
+  }
+};
+
+Blockly.Blocks['spider_left'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Go left")
+        .appendField(new Blockly.FieldTextInput("1"), "LEFT_SECS")
+        .appendField("seconds");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(260);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.erlerobotics.com/');
+  }
+};
+
+Blockly.Blocks['spider_turn_left'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Turn left")
+        .appendField(new Blockly.FieldTextInput("1"), "TURN_LEFT_SECS")
+        .appendField("seconds");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(260);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.erlerobotics.com/');
+  }
+};
+
+Blockly.Blocks['spider_turn_right'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Turn right")
+        .appendField(new Blockly.FieldTextInput("1"), "TURN_RIGHT_SECS")
         .appendField("seconds");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
