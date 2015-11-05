@@ -150,7 +150,9 @@ Blockly.parseOptions_ = function(options) {
   gridOptions.colour = grid['colour'] || '#888';
   gridOptions.length = parseFloat(grid['length']) || 1;
   gridOptions.snap = gridOptions.spacing > 0 && !!grid['snap'];
-  var pathToMedia = 'https://blockly-demo.appspot.com/static/media/';
+  // var pathToMedia = 'https://blockly-demo.appspot.com/static/media/';
+  var pathToMedia = 'https://10.0.0.1/frontend/pages/assets/';
+  // var pathToMedia = '../pages/assets';
   if (options['media']) {
     pathToMedia = options['media'];
   } else if (options['path']) {
