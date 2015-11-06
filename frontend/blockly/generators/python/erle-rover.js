@@ -33,14 +33,6 @@ Blockly.Python['rover_mode'] = function(block) {
   // var code = 'print "Changing mode..."\n';
 	var code = ""
 	code+="import rospy\n"
-	code+="import sys\n"
-	code+="import time\n"
-	code+="from mavros.msg import CommandBool.h\n"
-	code+="from mavros.msg import CommandTOL.h\n"
-	code+="from mavros.msg import SetMode.h\n"
-
-
-	code+="import rospy\n"
 	code+="from mavros_msgs.srv import SetMode\n"
 	code+="def talker():\n"
     code+="rospy.init_node('rover_mode')\n"
