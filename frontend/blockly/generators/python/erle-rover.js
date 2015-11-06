@@ -23,15 +23,16 @@
  */
 'use strict';
 
-goog.provide('Blockly.Python.spider');
+goog.provide('Blockly.Python.rover');
 goog.require('Blockly.Python');
 
 
 
 Blockly.Python['rover_mode'] = function(block) {
   var dropdown_mode = block.getFieldValue('MODE');
-  // var code = 'print "Changing mode..."\n';
+  
 	var code = ""
+	var code = 'print "Changing mode..."\n';
 	code+="import rospy\n"
 	code+="from mavros_msgs.srv import SetMode\n"
 	code+="def talker():\n"
@@ -42,8 +43,8 @@ Blockly.Python['rover_mode'] = function(block) {
     code+="resp1 = change_mode(custom_mode=dropdown_mode)\n"
     code+="return resp1.success\n"
     code+="except rospy.ServiceException, e:\n"
-    code+="print "Service call failed: %s"%e\n"
-	code+="print talker()\n"
+    code+='print "Service call failed: %s" %e\n '
+    code+="print talker()\n"
 
   return code;
 };
