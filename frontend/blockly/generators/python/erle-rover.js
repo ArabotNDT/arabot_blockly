@@ -29,22 +29,20 @@ goog.require('Blockly.Python');
 
 
 Blockly.Python['rover_mode'] = function(block) {
-  var dropdown_mode = block.getFieldValue('MODE');
+  var dropdown_mode = block.getFieldValue('MODE')
   
-	var code = ""
-	var code = 'print "Changing mode..."\n';
-	code+="import rospy\n"
-	code+="from mavros_msgs.srv import SetMode\n"
-	code+="def talker():\n"
-    code+="rospy.init_node('rover_mode')\n"
+    var code = ""
+    code+="import rospy\n"
+    code+="from mavros_msgs.srv import SetMode\n"
+    //code+="rospy.init_node('rover_mode')\n"
     code+="rospy.wait_for_service('/mavros/set_mode')\n"
     code+="try:\n"
-    code+="change_mode = rospy.ServiceProxy('/mavros/set_mode', SetMode)\n"
-    code+="resp1 = change_mode(custom_mode=dropdown_mode)\n"
-    code+="return resp1.success\n"
-    code+="except rospy.ServiceException, e:\n"
-    code+='print "Service call failed: %s" %e\n '
-    code+="print talker()\n"
+    code+=" change_mode = rospy.ServiceProxy('/mavros/set_mode', SetMode)\n"
+    code+=" mode='"+dropdown_mode.toString()+"'\n"
+    code+=" resp1 = change_mode(0,mode)\n"
+    code+="except rospy.ServiceException as e:\n"
+    code+=' print ("Service call failed: %s" %e\n )'
+    code+="\n"
 
   return code;
 };
