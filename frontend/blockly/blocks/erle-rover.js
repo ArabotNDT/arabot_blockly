@@ -43,3 +43,18 @@ Blockly.Blocks['rover_mode'] = {
     this.setHelpUrl('http://www.erlerobotics.com/');
   }
 };
+
+Blockly.Blocks['rover_forward'] = {
+  init: function() {
+    this.appendValueInput("TIME")
+        .setCheck("Number")
+        .appendField(new Blockly.FieldDropdown([["SLOW", "SLOW"], ["NORMAL", "NORMAL"], ["FAST", "FAST"]]), "SPEED")
+        .appendField("seconds");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.erlerobotics.com/');
+  }
+
+};
