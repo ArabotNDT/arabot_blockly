@@ -46,3 +46,49 @@ Blockly.Python['rover_mode'] = function(block) {
 
   return code;
 };
+
+Blockly.Python['rover_forward'] = function(block) {
+  var dropdown_speed = block.getFieldValue('SPEED');
+  var value_time = Blockly.Python.valueToCode(block, 'TIME', Blockly.Python.ORDER_ATOMIC);
+  var code = ""
+  code+="import rospy\n"
+  code+="import time\n"
+  code+="from mavros_msgs.msg import OverrideRCIn\n"
+  code+="from mavros_msgs.srv import SetMode\n"
+  code+="throttle_channel=2\n"
+  code+="def talker():\n"
+  code+=" pub = rospy.Publisher('mavros/rc/override', OverrideRCIn, queue_size=10)\n"
+  //code+=" rospy.init_node('custom_talker', anonymous=True)\n"
+  code+=" r = rospy.Rate(10) #10hz\n"
+  code+=" msg = OverrideRCIn()\n"
+  code+=" start = time.time()\n"
+  code+=" speed='"+dropdown_speed.toString()+"'\n"
+  code+=" exec_time="+value_time.toString()+"\n"
+  code+=" flag=True #time flag\n"
+  code+=" if speed =='SLOW':\n"
+  code+="  msg.channels[throttle_channel]=1600\n"
+  code+=" elif speed =='NORMAL':\n"
+  code+="  msg.channels[throttle_channel]=1800\n"
+  code+=" elif speed == 'FAST':\n"
+  code+="  msg.channels[throttle_channel]=2000\n"
+  code+=" while not rospy.is_shutdown() and flag:\n"
+  code+="  sample_time=time.time()\n"
+  code+="  if ((sample_time - start) > exec_time):\n"
+  code+="   flag=False\n"
+  code+="  rospy.loginfo(msg)\n"
+  code+="  pub.publish(msg)\n"
+  code+="  r.sleep()\n"
+  code+="if __name__ == '__main__':\n"
+  code+=" rospy.wait_for_service('/mavros/set_mode')\n"
+  code+=" change_mode = rospy.ServiceProxy('/mavros/set_mode', SetMode)\n"
+  code+=" resp1 = change_mode(custom_mode='manual')\n"
+  code+=" print (resp1)\n"
+  code+=" if 'True' in str(resp1):\n"
+  code+="  try:\n"
+  code+="   talker()\n"
+  code+="  except rospy.ROSInterruptException: pass\n"
+  code+="\n"
+
+
+  return code;
+};
