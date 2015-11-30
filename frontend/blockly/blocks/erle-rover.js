@@ -38,7 +38,7 @@ Blockly.Blocks['rover_mode'] = {
         .appendField(new Blockly.FieldDropdown([["MANUAL mode", "MANUAL"], ["LEARNING mode", "LEARNING"], ["AUTO mode", "AUTO"], ["STEERING mode", "STEERING"], ["HOLD mode", "HOLD"], ["GUIDED mode", "GUIDED"]]), "MODE");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setColour(230);
+    this.setColour(60);
     this.setTooltip('');
     this.setHelpUrl('http://www.erlerobotics.com/');
   }
@@ -52,7 +52,7 @@ Blockly.Blocks['rover_forward'] = {
         .appendField("seconds");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(60);
     this.setTooltip('');
     this.setHelpUrl('http://www.erlerobotics.com/');
   }
