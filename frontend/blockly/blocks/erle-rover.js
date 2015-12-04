@@ -58,3 +58,40 @@ Blockly.Blocks['rover_forward'] = {
   }
 
 };
+
+
+Blockly.Blocks['rover_steering'] = {
+  init: function() {
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(new Blockly.FieldDropdown([["RIGHT", "RIGHT"], ["LEFT", "LEFT"], ["STRAIGHT", "STRAIGHT"]]), "dire$
+    this.appendDummyInput()
+        .appendField("Direction");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, "String");
+    this.setNextStatement(true, "String");
+    this.setColour(65);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.erlerobotics.com/');
+  }
+};
+
+Blockly.Blocks['rover_control'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["RIGHT", "RIGHT"], ["LEFT", "LEFT"], ["STRAIGHT", "STRAIGHT"]]), "dire$
+        .appendField("Direction")
+        .appendField(new Blockly.FieldDropdown([["SLOW", "SLOW"], ["NORMAL", "NORMAL"], ["FAST", "FAST"]]), "speed")
+        .appendField("Speed");
+    this.appendValueInput("seconds")
+        .setCheck("Number")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("seconds");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(65);
+    this.setTooltip('');
+    this.setHelpUrl('http://www.erlerobotics.com/');
+  }
+};
+
