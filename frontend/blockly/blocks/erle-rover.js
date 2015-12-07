@@ -18,19 +18,19 @@
  */
 
 /**
- * @fileoverview Blocks for Erle-Spider.
+ * @fileoverview Blocks for Erle-Rover.
  * @author inigo@erlerobot.com (Iñigo Muguruza)
  */
 'use strict';
 
-goog.provide('Blockly.Blocks.spider');
+goog.provide('Blockly.Blocks.rover');
 goog.require('Blockly.Blocks');
 
 
 /**
  * Common HSV hue for all blocks in this category.
  */
-Blockly.Blocks.spider.HUE = 260;
+Blockly.Blocks.rover.HUE = 260;
 
 Blockly.Blocks['rover_mode'] = {
   init: function() {
@@ -64,7 +64,8 @@ Blockly.Blocks['rover_steering'] = {
   init: function() {
     this.appendDummyInput()
         .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField(new Blockly.FieldDropdown([["RIGHT", "RIGHT"], ["LEFT", "LEFT"], ["STRAIGHT", "STRAIGHT"]]), "dire$
+        .appendField(new Blockly.FieldDropdown([["RIGHT", "RIGHT"], ["LEFT", "LEFT"], ["STRAIGHT", "STRAIGHT"]]), "direction")
+
     this.appendDummyInput()
         .appendField("Direction");
     this.setInputsInline(true);
@@ -79,7 +80,7 @@ Blockly.Blocks['rover_steering'] = {
 Blockly.Blocks['rover_control'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([["RIGHT", "RIGHT"], ["LEFT", "LEFT"], ["STRAIGHT", "STRAIGHT"]]), "dire$
+        .appendField(new Blockly.FieldDropdown([["RIGHT", "RIGHT"], ["LEFT", "LEFT"], ["STRAIGHT", "STRAIGHT"]]), "direction")
         .appendField("Direction")
         .appendField(new Blockly.FieldDropdown([["SLOW", "SLOW"], ["NORMAL", "NORMAL"], ["FAST", "FAST"]]), "speed")
         .appendField("Speed");
