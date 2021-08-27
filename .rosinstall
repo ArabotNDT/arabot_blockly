@@ -1,4 +1,4 @@
 # main repo
-- git: {local-name: turtlebot3_blockly, uri:
-'git@github.com:dabit-industries/turtlebot3_blockly.git', version:
+- git: {local-name: arabot_blockly, uri:
+'git@github.com:ArabotNDT/arabot_blockly.git', version:
 'master'}

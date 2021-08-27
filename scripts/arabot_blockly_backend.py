@@ -45,7 +45,7 @@ from std_msgs.msg import String
 from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from autobahn.asyncio.websocket import WebSocketServerProtocol, \
     WebSocketServerFactory
-from turtlebot3_blockly.srv import SetCurrentBlockId, SetCurrentBlockIdResponse
+from arabot_blockly.srv import SetCurrentBlockId, SetCurrentBlockIdResponse
 from std_msgs.msg import String
 from sensor_msgs.msg import Joy
 #from crab_msgs.msg import apm_imu
@@ -322,7 +322,7 @@ class BlocklyServerProtocol(WebSocketServerProtocol):
         target.write("import subprocess\n")
         target.write("from std_msgs.msg import String\n")
         target.write("from std_srvs.srv import Empty, Trigger\n")
-        target.write("from turtlebot3_blockly.srv import SetCurrentBlockId\n")
+        target.write("from arabot_blockly.srv import SetCurrentBlockId\n")
         target.write("\n")
         target.write("rospy.init_node('blockly_node', anonymous=True)\n")
         target.write("ros_initial_nodes = rosnode.get_node_names()\n")
