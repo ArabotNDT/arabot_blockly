@@ -8,54 +8,39 @@
 */
 
 /**
- * @fileoverview Blocks for Dabit-arabot.
- * @author cosmo@dabitindustries.com (Cosmo Borsky)
- * @author aravind@dabitindustries.com (Aravind Krishnan)
+ * @fileoverview Blocks for NDT-arabot.
+ * @author avelino.forechi@ifes.edu.br (Avelino Forechi)
 */
 'use strict';
 
 goog.provide('Blockly.Python.arabot');
 goog.require('Blockly.Python');
 
-Blockly.Python['circle_mode'] = function(block) {
+Blockly.Python['wheel_encoder'] = function(block) {
 
-  var dropdown_direction = block.getFieldValue('direction');
-  var dropdown_speed = block.getFieldValue('speed');
-
-  var code = "";
-  code += "dropdown_direction = \"" + dropdown_direction.toString() + "\"\n";
-  code += "dropdown_speed = \"" + dropdown_speed.toString() + "\"\n";
-  code += Blockly.readPythonFile("../blockly/generators/python/scripts/arabot/circle_mode.py");
-  return code;
-
-};
-
-Blockly.Python['move_forward'] = function(block) {
+  var varName = Blockly.Python.valueToCode(block, 'get_distance_var', Blockly.Python.ORDER_ATOMIC);
+  var dropdown_motor = block.getFieldValue('motor');
   
-  var seconds = block.getFieldValue('MOVE_SECS');
-  var dropdown_speed = block.getFieldValue('speed');
-
   var code = "";
-  code += "seconds = \"" + seconds.toString() + "\"\n";
-  code += "dropdown_speed = \"" + dropdown_speed.toString() + "\"\n";
-  code += Blockly.readPythonFile("../blockly/generators/python/scripts/arabot/move_forward.py");
-  return code;
+  code += "dropdown_motor = \"" + dropdown_motor.toString() + "\"\n";
+  code += Blockly.readPythonFile("../blockly/generators/python/scripts/arabot/wheel_encoder.py");
+  return code + '\n' + varName + "=msg_distance.data \n";
 
 };
 
-Blockly.Python['move_backward'] = function(block) {
+Blockly.Python['wheel_velocity'] = function(block) {
 
-  var seconds = block.getFieldValue('MOVE_SECS');
-  var dropdown_speed = block.getFieldValue('speed');
+  var speed = block.getFieldValue('speed');
+  var dropdown_motor = block.getFieldValue('motor');
 
   var code = "";
-  code += "seconds = \"" + seconds.toString() + "\"\n";
-  code += "dropdown_speed = \"" + dropdown_speed.toString() + "\"\n";
-  code += Blockly.readPythonFile("../blockly/generators/python/scripts/arabot/move_backward.py");
+  code += "speed = \"" + speed.toString() + "\"\n";
+  code += "dropdown_motor = \"" + dropdown_motor.toString() + "\"\n";
+  code += Blockly.readPythonFile("../blockly/generators/python/scripts/arabot/wheel_velocity.py");
   return code;
 
 };
-
+/*
 Blockly.Python['turn_left'] = function(block) {
 
   var seconds = block.getFieldValue('TURN_SECS');
@@ -102,3 +87,4 @@ Blockly.Python['stop'] = function(block) {
     return code;
 
 };
+*/

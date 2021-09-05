@@ -8,10 +8,9 @@
 */
 
 /**
- * @fileoverview Blocks for Dabit-arabot.
- * @author cosmo@dabitindustries.com (Cosmo Borsky)
- * @author aravind@dabitindustries.com (Aravind Krishnan)
-*/
+ * @fileoverview Blocks for NDT-arabot.
+ * @author avelino.forechi@ifes.edu.br (Avelino Forechi)
+ */
 'use strict';
 
 goog.provide('Blockly.Blocks.arabot');
@@ -24,14 +23,14 @@ goog.require('Blockly.Blocks');
 Blockly.Blocks.arabot.HUE = 260;
 
 
-Blockly.Blocks['circle_mode'] = {
+Blockly.Blocks['wheel_encoder'] = {
   init: function() {
+    this.appendValueInput("get_distance_var")
+        .appendField("Get Distance")
     this.appendDummyInput()
-        .appendField("Circle_Mode ")
-	    .appendField(new Blockly.FieldDropdown([["CLOCKWISE", "CLOCKWISE"], ["COUNTER-CLOCKWISE", "COUNTER-CLOCKWISE"]]), "direction")
-        .appendField("Direction")
-        .appendField(new Blockly.FieldDropdown([["SLOW", "SLOW"], ["NORMAL", "NORMAL"], ["FAST", "FAST"]]), "speed")
-        .appendField("Speed");
+        .appendField("Wheel_Encoder ")
+        .appendField(new Blockly.FieldDropdown([["LEFT", "left"], ["RIGHT", "right"]]), "motor")
+        .appendField("Motor");
     this.setPreviousStatement(true);
     this.setNextStatement(true);    
     this.setColour(65);
@@ -40,14 +39,14 @@ Blockly.Blocks['circle_mode'] = {
   }
 };
 
-Blockly.Blocks['move_forward'] = {
+Blockly.Blocks['wheel_velocity'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Move_Forward ")
-        .appendField(new Blockly.FieldTextInput("1"), "MOVE_SECS")
-        .appendField("second(s) ")
-        .appendField(new Blockly.FieldDropdown([["SLOW", "SLOW"], ["NORMAL", "NORMAL"], ["FAST", "FAST"]]), "speed")
-        .appendField("Speed");
+        .appendField("Wheel_Velocity ")
+        .appendField(new Blockly.FieldTextInput("1"), "speed")
+        .appendField("m/s ")
+        .appendField(new Blockly.FieldDropdown([["LEFT", "left"], ["RIGHT", "right"]]), "motor")
+        .appendField("Motor");
     this.setPreviousStatement(true);
     this.setNextStatement(true);    
     this.setColour(65);
@@ -55,23 +54,7 @@ Blockly.Blocks['move_forward'] = {
     this.setHelpUrl('http://erlerobotics.com/docs/Robot_Operating_System/ROS/Blockly/Intro.html');
   }
 };
-
-Blockly.Blocks['move_backward'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Move_Backward ")
-        .appendField(new Blockly.FieldTextInput("1"), "MOVE_SECS")
-        .appendField("second(s) ")
-        .appendField(new Blockly.FieldDropdown([["SLOW", "SLOW"], ["NORMAL", "NORMAL"], ["FAST", "FAST"]]), "speed")
-        .appendField("Speed");
-    this.setPreviousStatement(true);
-    this.setNextStatement(true);    
-    this.setColour(65);
-    this.setTooltip('');
-    this.setHelpUrl('http://erlerobotics.com/docs/Robot_Operating_System/ROS/Blockly/Intro.html');
-  }
-};
-
+/*
 Blockly.Blocks['turn_left'] = {
   init: function() {
     this.appendDummyInput()
@@ -130,3 +113,4 @@ Blockly.Blocks['stop'] = {
     this.setHelpUrl('http://erlerobotics.com/docs/Robot_Operating_System/ROS/Blockly/Intro.html');
   }
 };
+*/

@@ -264,7 +264,7 @@ class Gen_compressed(threading.Thread):
   def do_compile(self, params, target_filename, filenames, remove):
     # Send the request to Google.
     headers = {"Content-type": "application/x-www-form-urlencoded"}
-    conn = httplib.HTTPConnection("closure-compiler.appspot.com")
+    conn = httplib.HTTPSConnection("closure-compiler.appspot.com")
     conn.request("POST", "/compile", urllib.urlencode(params), headers)
     response = conn.getresponse()
     json_str = response.read()
@@ -391,7 +391,7 @@ class Gen_langfiles(threading.Thread):
                       ["en.json", "qqq.json", "synonyms.json"]]):
       try:
         subprocess.check_call([
-            "python",
+            "python2.7",
             os.path.join("i18n", "js_to_json.py"),
             "--input_file", "msg/messages.js",
             "--output_dir", "msg/json/",
@@ -408,7 +408,7 @@ class Gen_langfiles(threading.Thread):
     try:
       # Use create_messages.py to create .js files from .json files.
       cmd = [
-          "python",
+          "python2.7",
           os.path.join("i18n", "create_messages.py"),
           "--source_lang_file", os.path.join("msg", "json", "en.json"),
           "--source_synonym_file", os.path.join("msg", "json", "synonyms.json"),
@@ -463,7 +463,7 @@ https://developers.google.com/blockly/hacking/closure""")
   # Uncompressed is limited by processor speed.
   # Compressed is limited by network and server speed.
   Gen_uncompressed(search_paths).start()
-  Gen_compressed(search_paths).start()
+  # Gen_compressed(search_paths).start()
 
   # This is run locally in a separate thread.
   Gen_langfiles().start()

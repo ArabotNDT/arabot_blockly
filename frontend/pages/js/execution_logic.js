@@ -206,7 +206,7 @@ var ExecutionLogicModule = (function () {
           Blockly.Python.addReservedWords('code');
           var saved_statement_prefix = Blockly.Python.STATEMENT_PREFIX;
           try {
-            Blockly.Python.STATEMENT_PREFIX = 'check_status(%1)\n';
+            Blockly.Python.STATEMENT_PREFIX = '\ncheck_status(%1)\n';
             var code = Blockly.Python.workspaceToCode(workspace);
             if (0 == code.length) {
               code = 'pass\n'
