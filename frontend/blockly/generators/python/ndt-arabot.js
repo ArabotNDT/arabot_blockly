@@ -79,12 +79,16 @@ Blockly.Python['turn_degrees'] = function(block) {
     return code;
 
 };
-
-Blockly.Python['stop'] = function(block) {
+*/
+Blockly.Python['camera_image'] = function(block) {
+    
+    window.open(
+      '/pages/images/imageViewer.html',
+      '_blank' // <- This is what makes it open in a new window.
+    );
     
     var code = "";
-    code += Blockly.readPythonFile("../blockly/generators/python/scripts/arabot/stop.py");
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/arabot/camera_image.py");
     return code;
 
 };
-*/

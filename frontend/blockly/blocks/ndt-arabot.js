@@ -26,11 +26,10 @@ Blockly.Blocks.arabot.HUE = 260;
 Blockly.Blocks['wheel_encoder'] = {
   init: function() {
     this.appendValueInput("get_distance_var")
-        .appendField("Get Distance")
+        .appendField("Odometria")
     this.appendDummyInput()
-        .appendField("Wheel_Encoder ")
-        .appendField(new Blockly.FieldDropdown([["LEFT", "left"], ["RIGHT", "right"]]), "motor")
-        .appendField("Motor");
+        .appendField("Roda ")
+        .appendField(new Blockly.FieldDropdown([["Esquerda", "left"], ["Direita", "right"]]), "motor")
     this.setPreviousStatement(true);
     this.setNextStatement(true);    
     this.setColour(65);
@@ -42,11 +41,10 @@ Blockly.Blocks['wheel_encoder'] = {
 Blockly.Blocks['wheel_velocity'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Wheel_Velocity ")
+        .appendField("Velocidade ")
         .appendField(new Blockly.FieldTextInput("1"), "speed")
-        .appendField("m/s ")
-        .appendField(new Blockly.FieldDropdown([["LEFT", "left"], ["RIGHT", "right"]]), "motor")
-        .appendField("Motor");
+        .appendField("m/s Roda ")
+        .appendField(new Blockly.FieldDropdown([["Esquerda", "left"], ["Direita", "right"]]), "motor")
     this.setPreviousStatement(true);
     this.setNextStatement(true);    
     this.setColour(65);
@@ -101,11 +99,11 @@ Blockly.Blocks['turn_degrees'] = {
     this.setHelpUrl('http://erlerobotics.com/docs/Robot_Operating_System/ROS/Blockly/Intro.html');
   }
 };
-
-Blockly.Blocks['stop'] = {
+*/
+Blockly.Blocks['camera_image'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Stop ")
+        .appendField("Camera ")
     this.setPreviousStatement(true);
     this.setNextStatement(true);    
     this.setColour(65);
@@ -113,4 +111,3 @@ Blockly.Blocks['stop'] = {
     this.setHelpUrl('http://erlerobotics.com/docs/Robot_Operating_System/ROS/Blockly/Intro.html');
   }
 };
-*/
