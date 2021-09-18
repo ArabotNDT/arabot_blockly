@@ -43,7 +43,7 @@ Blockly.Blocks['wheel_velocity'] = {
     this.appendDummyInput()
         .appendField("Velocidade ")
         .appendField(new Blockly.FieldTextInput("1"), "speed")
-        .appendField("m/s Roda ")
+        .appendField(" Roda ")
         .appendField(new Blockly.FieldDropdown([["Esquerda", "left"], ["Direita", "right"]]), "motor")
     this.setPreviousStatement(true);
     this.setNextStatement(true);    

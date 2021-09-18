@@ -1,25 +1,21 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
 import http.server
 import socketserver
-import socket
-import os
+
 from rospkg import RosPack
 
-rp = RosPack()
-frontend_path = rp.get_path('arabot_blockly')
-frontend_path += '/frontend'
-
-print("Changing serve path to: " + frontend_path)
-
-os.chdir(frontend_path)
-
-HOST = socket.gethostname()
 PORT = 1036
-address = ("",PORT)
 
-Handler = http.server.SimpleHTTPRequestHandler
+rp = RosPack()
+DIRECTORY = rp.get_path('arabot_blockly')
+DIRECTORY += '/frontend'
 
-httpd = socketserver.TCPServer(address, Handler)
+print("Changing server path to: " + DIRECTORY)
 
-print("serving at port", PORT)
-httpd.serve_forever()
+class Handler(http.server.SimpleHTTPRequestHandler):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=DIRECTORY, **kwargs)
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("serving at port", PORT)
+    httpd.serve_forever()

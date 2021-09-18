@@ -9,7 +9,7 @@ from sensor_msgs.msg import Image
 
 rospy.init_node('blockly_node', anonymous=True)
 
-msg_image = rospy.wait_for_message('/arabot/camera', Image, timeout=5)
+msg_image = rospy.wait_for_message('/arabot/get_camera_frame', Image, timeout=5)
 np_arr = np.frombuffer(msg_image.data, np.uint8)
 image_np = np.reshape(np_arr, (msg_image.height, msg_image.width, 4))
 
