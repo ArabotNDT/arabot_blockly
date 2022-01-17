@@ -38,7 +38,6 @@ import os
 import threading
 import signal
 import rosnode
-import mavros
 
 from subprocess import Popen
 from std_msgs.msg import String
